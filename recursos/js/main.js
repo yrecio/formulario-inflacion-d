@@ -20,14 +20,16 @@ let psegundo = document.getElementById("pestana-segundo");
 let primeroAbierta = function() {
 	
   cprimero.style.display = 'flex';
-  csegundo.style.display = 'none';
+  csegundo.style.display = 'hidden';
   
   pprimero.style.backgroundColor = '#cc0000';
   pprimero.style.color = 'white';
   
   psegundo.style.backgroundColor = '#cb9595';
   psegundo.style.color = 'white';
- 
+
+  sliders = ['']
+  csegundo.innerHTML = '';
 
 for (j = 0; j < items.length; j++){
 	
@@ -39,7 +41,7 @@ for (j = 0; j < items.length; j++){
 	<br>
 	<span>-100%</span><input type="range" min="-100" max="100" value="0" id="rangeslider${id[j]}" class="slider" step="0.1"><span>100%</span>
 	<p id="respuesta">Respuesta: <span id="numrespuesta${id[j]}">0%</span></p>
-	<div id="mensaje${id[j]}"><p style="color: #a3a3a3">Mueve la rueda para consultar si se ha incrementado o reducido.</p></div>
+	<div id="mensaje${id[j]}"><p style="color: #a3a3a3">Mueve la rueda para consultar si<br>se ha incrementado o reducido.</p></div>
 	</div>`)
 }
 
@@ -63,27 +65,29 @@ for (k = 1; k <= items.length; k++){
 				mensaje.innerHTML = `<p>Correcto.<br>El precio del ${item.toLowerCase()} se ha incrementado un ${num}%</p>`;
 				mensaje.style.color = '#0b7703';
 				mensaje.style.fontWeight = 'bold';
+				rangeslider.style.background = '#0b7703';
 			} else if ((diferenciaVal < 20 && diferenciaVal >= 5) || (diferenciaVal > -20 && diferenciaVal <= -5)) {
 				mensaje.innerHTML = `<p>El incremento introducido se acerca al correcto</p>`;
 				mensaje.style.color = '#fd9d06';
 				mensaje.style.fontWeight = 'bold';
+				rangeslider.style.background = '#fd9d06';
 			} else if (diferenciaVal < 5 && diferenciaVal > -5 ) {
 				mensaje.innerHTML = `<p>El incremento introducido es casi correcto</p>`;
 				mensaje.style.color = '#b2cc06';
 				mensaje.style.fontWeight = 'bold';
+				rangeslider.style.background = '#b2cc06';
 			} else {
 				mensaje.innerHTML = 'Incorrecto'
 				mensaje.style.color = '#ca0000';
 				mensaje.style.fontWeight = 'bold';
+				rangeslider.style.background = '#ca0000';
 			}
 	}
 }
 };
 
-pprimero.addEventListener('click', primeroAbierta); 
-
 let segundoAbierta = function() {
-  cprimero.style.display = 'none';
+  cprimero.style.display = 'hidden';
   csegundo.style.display = 'flex';
   
   pprimero.style.backgroundColor = '#cb9595';
@@ -91,11 +95,12 @@ let segundoAbierta = function() {
   
   psegundo.style.backgroundColor = '#cc0000';
   psegundo.style.color = 'white';
-  
+
+  consultaPrecios = ['']
   cprimero.innerHTML = '';
-  csegundo.innerHTML = '';
 
 for (l = 0; l < items.length; l++){
+	
 	let item2 = items[l].toString();
 	let valINE2 = val[l];
 	
@@ -144,8 +149,7 @@ for (m = 1; m <= items.length; m++){
 }  
 
 psegundo.addEventListener('click', segundoAbierta);
-
-
+pprimero.addEventListener('click', primeroAbierta); 
 
 
 

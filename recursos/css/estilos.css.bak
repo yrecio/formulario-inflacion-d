@@ -14,6 +14,7 @@ body{
 header{
 	text-align: center;
 	margin: 1rem;
+	font-size: 0.8rem;
 }
 
 #logo{
@@ -72,20 +73,18 @@ label{
 .slider::-webkit-slider-thumb{
   -webkit-appearance: none;
   appearance: none;
-  width: 1.2rem;
-  height: 1.2rem;
-  background-color: #3b3b3b;
+  width: 1rem;
+  height: 1rem;
+  background-color: #cb9595;
   border-radius: 100%;
   cursor: pointer;
   bottom: 0; 
 }
 
-
 .slider::-webkit-slider-thumb:hover{
-  width: 2rem;
-  height: 2rem;
-  background-color: #d8d8d8;
-  opacity: 80%
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #CC0000;
 }
 
 .mensaje{
@@ -173,9 +172,5 @@ label{
 	label{
 		font-size: 1.2rem;
 	}
-	
-	header{
-	font-size: 0.8rem;
-}
 	
 }
